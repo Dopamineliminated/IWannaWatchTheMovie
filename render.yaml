@@ -1,0 +1,18 @@
+# Render 배포 설정 (https://render.com)
+# 저장소를 Render 에 연결하면 이 파일을 자동으로 읽어 웹 서비스를 만듭니다.
+services:
+  - type: web
+    name: netflix-movie-recommender
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/config
+    autoDeploy: true
+    envVars:
+      - key: TMDB_API_KEY
+        sync: false   # 값은 Render 대시보드에서 직접 입력 (없으면 데모 카탈로그로 동작)
+      - key: WATCH_REGION
+        value: KR
+      - key: TMDB_LANGUAGE
+        value: ko-KR

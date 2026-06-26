@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎬 넷플릭스 추천기</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="site-header">
+      <h1><span class="nf">N</span> 넷플릭스 추천기</h1>
+      <p class="tagline">당신의 시청기록과 오늘의 기분으로 다음에 볼 영화·시리즈를 찾아드려요.</p>
+      <p class="catalog-note" id="catalogNote"></p>
+    </header>
+
+    <!-- 1단계: 입력 -->
+    <section id="intro" class="card">
+      <label class="field-label">넷플릭스 시청기록</label>
+      <div class="drop" id="drop">
+        <input id="fileInput" type="file" accept=".csv,text/csv" hidden />
+        <div class="drop-inner">
+          <div class="drop-icon">📄</div>
+          <p><b id="fileName">NetflixViewingHistory.csv</b> 를 여기에 끌어다 놓거나</p>
+          <button id="pickBtn" class="btn">파일 선택</button>
+        </div>
+      </div>
+      <div class="intro-foot">
+        <button id="demoBtn" class="btn ghost">🎲 데모로 먼저 체험하기</button>
+        <details class="help">
+          <summary>시청기록은 어떻게 받나요?</summary>
+          <ul>
+            <li>PC 웹에서 <b>넷플릭스 로그인 → 계정 → 프로필 선택 → 시청 활동</b></li>
+            <li>맨 아래 <b>「모두 다운로드」</b> 클릭 → <code>NetflixViewingHistory.csv</code> 저장</li>
+            <li>그 파일을 위에 올리면 됩니다. (파일은 추천 계산에만 쓰이고 서버에 저장하지 않아요)</li>
+            <li id="apiKeyNote"></li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- 로딩 -->
+    <section id="loading" class="hidden">
+      <div class="spinner"></div>
+      <p id="loadingText">시청기록을 분석하는 중…</p>
+    </section>
+
+    <!-- 2단계: 분석 + 질문 -->
+    <section id="analysis" class="hidden">
+      <div class="card profile-card">
+        <div class="player">
+          <div class="nf-badge">N</div>
+          <div>
+            <h2 id="playerName"></h2>
+            <p id="libSummary" class="muted"></p>
+          </div>
+        </div>
+        <div class="top-tags" id="topTags"></div>
+        <div class="top-games" id="topGames"></div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">오늘은 어떤 게 끌리세요?</h2>
+        <p class="muted">시청기록은 기준선일 뿐, 아래 답변이 추천 방향을 크게 바꿉니다.</p>
+        <div id="questions"></div>
+        <div class="action-row">
+          <button id="recommendBtn" class="btn primary large">✨ 추천 받기</button>
+          <button id="resetBtn" class="btn ghost">처음으로</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3단계: 결과 -->
+    <section id="results" class="hidden">
+      <div class="results-head">
+        <h2 class="section-title">당신을 위한 추천</h2>
+        <div class="action-row">
+          <button id="rerollBtn" class="btn">🔄 다른 추천 보기</button>
+          <button id="editBtn" class="btn ghost">질문 다시 답하기</button>
+        </div>
+      </div>
+      <div id="recGrid" class="rec-grid"></div>
+    </section>
+
+    <footer class="site-footer">
+      데이터: TMDB · 넷플릭스 가용성은 지역에 따라 다를 수 있어요 · 추천은 참고용입니다.
+    </footer>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="app.js"></script>
+</body>
+</html>

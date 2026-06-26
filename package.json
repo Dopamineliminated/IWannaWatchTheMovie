@@ -1,0 +1,19 @@
+{
+  "name": "netflix-recommender",
+  "version": "1.0.0",
+  "description": "넷플릭스 시청기록과 오늘의 기분 질문을 기반으로 영화·시리즈를 추천하는 웹앱",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "build-catalog": "node scripts/build-catalog.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
