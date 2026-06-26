@@ -9,7 +9,7 @@
 
 **원클릭 배포** (키 없이 데모 카탈로그로 바로 동작):
 
-[![Render에 배포](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Dopamineliminated/netflix-movie-recommender)
+[![Render에 배포](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Dopamineliminated/IWannaSeeTheMovie)
 
 | 스팀 추천기 | 넷플릭스 추천기 |
 |---|---|
