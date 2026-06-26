@@ -10,11 +10,18 @@ Render 무료 플랜이 가장 간단합니다.
 - `render.yaml` 설정 파일 포함 ✅
 - 비밀키 `.env` 는 `.gitignore` 로 제외 ✅
 
-## 단계
+## 가장 빠른 길 — 원클릭 배포
+
+README의 **[Deploy to Render]** 버튼을 누르면 이 저장소로 바로 배포 화면이 열립니다.
+(Render 로그인 → 한 번 확인 → 끝. 키 없이 데모 카탈로그로 동작)
+
+👉 https://render.com/deploy?repo=https://github.com/Dopamineliminated/netflix-movie-recommender
+
+## 수동 단계 (대시보드)
 
 1. **https://render.com** 접속 → **GitHub 계정으로 로그인** (가입 무료)
 2. 우측 상단 **New +** → **Blueprint** (또는 **Web Service**)
-3. 방금 푸시한 저장소 **`netflix-movie-recommender`** 를 선택 → **Connect**
+3. 저장소 **`netflix-movie-recommender`** 를 선택 → **Connect**
 4. Render 가 `render.yaml` 을 자동 인식합니다. (수동이면: Build Command `npm install`, Start Command `npm start`)
 5. (선택) **Environment** 섹션에서 환경변수 추가 — 없어도 데모 카탈로그로 동작합니다:
    - Key: `TMDB_API_KEY`  ·  Value: *(발급받은 TMDB 키)*

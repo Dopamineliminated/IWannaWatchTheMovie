@@ -7,6 +7,10 @@
 
 스팀 게임 추천기와 같은 설계를 영화·시리즈로 옮긴 프로젝트입니다.
 
+**원클릭 배포** (키 없이 데모 카탈로그로 바로 동작):
+
+[![Render에 배포](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Dopamineliminated/netflix-movie-recommender)
+
 | 스팀 추천기 | 넷플릭스 추천기 |
 |---|---|
 | Steam API (보유작 + 플레이타임) | **넷플릭스 시청기록 CSV** (본 작품 + 횟수 + 최근성) |
